@@ -1,5 +1,6 @@
 {
   "name": "4ac",
+  "homepage": "https://above-the-line.github.io/4ac-site-hosting/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +12,7 @@
     "@types/node": "^16.18.58",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -18,6 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
