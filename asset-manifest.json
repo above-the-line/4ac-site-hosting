@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/4ac-site-hosting/static/css/main.9999cc7f.css",
+    "main.js": "/4ac-site-hosting/static/js/main.aa415779.js",
+    "static/js/787.b62222be.chunk.js": "/4ac-site-hosting/static/js/787.b62222be.chunk.js",
+    "static/media/image2.jpg": "/4ac-site-hosting/static/media/image2.954fc041cd822ca5cdc9.jpg",
+    "static/media/alcoholSport.jpg": "/4ac-site-hosting/static/media/alcoholSport.d53275875771c14c2874.jpg",
+    "index.html": "/4ac-site-hosting/index.html",
+    "main.9999cc7f.css.map": "/4ac-site-hosting/static/css/main.9999cc7f.css.map",
+    "main.aa415779.js.map": "/4ac-site-hosting/static/js/main.aa415779.js.map",
+    "787.b62222be.chunk.js.map": "/4ac-site-hosting/static/js/787.b62222be.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9999cc7f.css",
+    "static/js/main.aa415779.js"
+  ]
+}
