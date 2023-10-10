@@ -10,11 +10,16 @@ const Fullpage = () => (
     render={({ state, fullpageApi }) => {
       return (
         <ReactFullpage.Wrapper>
-          <div className="section">
-            <p>Section 1 (welcome to fullpage.js)</p>
-            <button onClick={() => fullpageApi.moveSectionDown()}>
-              Click me to move down
-            </button>
+          <div className="section text-center backgroundImage image1">
+            <div className="flex flex-col justify-center text-4xl p-4 text-white font-bold text-shadow-md">
+              Let's Stop Advertising Alcohol to Children
+            </div>
+            <button onClick={() => fullpageApi.moveSectionDown()}></button>
+          </div>
+          <div className="section text-center backgroundImage image2">
+            <div className="flex flex-col justify-center text-4xl p-4 text-white font-bold text-shadow-md">
+              Now you can do it
+            </div>
           </div>
           <div className="section">
             <p>Section 2</p>
