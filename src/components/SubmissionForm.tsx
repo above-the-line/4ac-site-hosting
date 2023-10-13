@@ -32,7 +32,11 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
   return (
     <div className="flex flex-col items-center min-w-[300px] md:min-w-[500px]">
       <div className="p-12 bg-slate-100 bg-opacity-85 shadow-md rounded-md">
-        <form onSubmit={handleSubmit}>
+        <form
+          target="_blank"
+          action="https://formsubmit.co/d40ce396e50f18653153ad50ceff1c88"
+          method="POST"
+        >
           <div className="mb-4">
             <input
               type="text"

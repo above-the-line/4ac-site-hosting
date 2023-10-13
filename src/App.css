@@ -3,13 +3,16 @@
 }
 
 .backgroundImage {
+  height: 100vh;
+  width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: -1000px; /* Horizontal position with a 200px offset */
+  background-position: center;
 }
 
 .image1 {
   background-image: url("./images/image1.jpg");
+  background-position: left;
 }
 
 .image2 {
@@ -24,12 +27,13 @@
   height: 100vh;
 }
 
-.headline{
-  text-shadow: 2px 2px 3px black; 
+.headline {
+  text-shadow: 2px 2px 3px black;
 }
 
 @media screen and (min-width: 960px) {
   .backgroundImage {
     background-position: right;
+    background-size: cover;
   }
 }
