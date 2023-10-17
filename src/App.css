@@ -1,26 +1,23 @@
-.fp-watermark {
-  display: none !important;
-}
-
 .backgroundImage {
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 .image1 {
-  background-image: url("./images/image1.jpg");
-  background-position: left;
+  background-image: url("./images/image1-1.jpg");
+  background-position: center;
 }
 
 .image2 {
-  background-image: url("./images/image2-2.jpg");
+  background-image: url("./images/image2-3.jpg");
+  background-position: center;
 }
 
 .image3 {
-  background-image: url("./images/image4-2.jpg");
+  background-image: url("./images/image3-1.jpg");
+  background-position: center;
 }
 
 .title {
@@ -32,8 +29,7 @@
 }
 
 @media screen and (min-width: 960px) {
-  .backgroundImage {
+  .image2 {
     background-position: right;
-    background-size: cover;
   }
 }

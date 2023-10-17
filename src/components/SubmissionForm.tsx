@@ -30,18 +30,20 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="flex flex-col items-center min-w-[300px] md:min-w-[500px]">
-      <div className="p-12 bg-slate-100 bg-opacity-85 shadow-md rounded-md">
+    <div className="flex flex-col items-center min-w-[300px] md:min-w-[500px] justify-center pb-5">
+      <div className="text-black text-2xl py-4">Get in touch</div>
+      <div className="p-12 bg-slate-100 bg-opacity-85 shadow-md rounded-md md:min-w-[450px]">
         <form
           target="_blank"
           action="https://formsubmit.co/d40ce396e50f18653153ad50ceff1c88"
           method="POST"
+          className="w-100"
         >
           <div className="mb-4">
             <input
               type="text"
               placeholder="Name"
-              className="input input-ghost w-full max-w-xs"
+              className="input input-ghost w-full"
               id="name"
               name="name"
               value={formData.name}
@@ -52,7 +54,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
             <input
               type="text"
               placeholder="Email"
-              className="input input-ghost w-full max-w-xs"
+              className="input input-ghost w-full"
               id="email"
               name="email"
               value={formData.email}
@@ -61,7 +63,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
           </div>
           <div className="mb-4">
             <textarea
-              className="textarea textarea-ghost textarea-lg w-full max-w-xs min-h-[250px]"
+              className="textarea textarea-ghost textarea-lg w-full min-h-[250px]"
               placeholder="Message"
               id="message"
               name="message"
@@ -69,7 +71,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
               onChange={handleChange}
             ></textarea>
           </div>
-          <button className="btn btn-wide btn-active btn-ghost text-xl font-bold">
+          <button className="btn btn-wide w-full  bg-green-700 border-green-700 text-green-100 btn-active text-xl font-bold">
             Submit
           </button>
         </form>

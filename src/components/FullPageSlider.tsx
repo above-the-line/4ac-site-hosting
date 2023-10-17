@@ -68,19 +68,27 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
   return (
     <div>
       <div className="section" ref={(el) => (sectionRefs.current[0] = el)}>
-        <div className="flex flex-col justify-center text-center backgroundImage image1">
+        <div className="flex flex-col justify-center items-center text-center backgroundImage image1">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
-            Let's stop advertising alcohol to children
+            Let's stop alcohol ads being shown to children
+          </div>
+          <div className="pt-8">
+            <a
+              className="text-green-100 bg-green-700 shadow-emerald-900 shadow-lg text-3xl w-[300px] p-4 rounded-lg font-bold inline relative hover:shadow-emerald-700 focus-within:shadow-emerald-700"
+              href="https://chuffed.org/project/pz85-stop-alcohol-ads-being-shown-to-children"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the campaign
+            </a>
           </div>
         </div>
       </div>
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
         <div className="flex flex-col justify-center text-center backgroundImage image2">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
-            <div className="max-w-[700px]">
-              Millions of kids watch TV sports, <br /> the government doesn't
-              protect them.
-            </div>
+            Millions of kids watch TV sports, <br /> The Australian Government
+            doesn't protect them from alcohol ads.
           </div>
         </div>
       </div>
@@ -88,30 +96,31 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
         {/* <div className="text-center bg-cover bg-no-repeat image3"> */}
         <div className=" flex flex-col justify-center items-center backgroundImage image3">
           <div className="items-center p-4 text-white">
-            <div className="max-w-[700px] bg-black bg-opacity-25 p-9 rounded-xl">
+            <div className="max-w-[700px] bg-black bg-opacity-25 p-9 rounded-xl shadow-lg">
               <div className="text-md md:text-2xl font-bold uppercase text-left pb-4 md:pb-8">
-                For years parents have asked for alcohol ads to be banned during
-                sport.
+                For decades parents have asked for alcohol ads to be banned
+                during sports programs.
               </div>
               <div className="text-md md:text-3xl text-left pl-6 pb-2 md:pb-4">
-                This year William Spaul took the{" "}
+                The{" "}
                 <a
                   className="text-sky-200 font-bold"
                   href="https://www.acma.gov.au/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ACMA
+                  Australian Communications and Media Authority
                 </a>{" "}
-                to court and demanded they stop discriminating against children.
+                has failed to act, so William Spaul has taken it to the Federal
+                Court and demanded that it stop discriminating against children.
               </div>
               <div className="text-md md:text-3xl text-left pl-6 pb-2 md:pb-4">
-                William's a working dad who can't afford to keep covering the
-                costs as the case goes before the Federal Court.
+                William's a working dad who needs help with legal costs for the
+                Federal Court action.
               </div>
               <div className="text-md md:text-3xl text-left pl-6 pb-2 md:pb-4">
-                If you would like to help with the cost of litigation please
-                donate to William's campaign on{" "}
+                If you would like to help, please donate to William's campaign
+                at{" "}
                 <a
                   className="text-sky-200 font-bold"
                   href="https://chuffed.org/project/pz85-stop-alcohol-ads-being-shown-to-children"
