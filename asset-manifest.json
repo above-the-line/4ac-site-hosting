@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/4ac-site-hosting/static/css/main.8db1ba34.css",
-    "main.js": "/4ac-site-hosting/static/js/main.1b3815e2.js",
+    "main.css": "/4ac-site-hosting/static/css/main.6da51e10.css",
+    "main.js": "/4ac-site-hosting/static/js/main.c695b6e4.js",
     "static/js/787.b62222be.chunk.js": "/4ac-site-hosting/static/js/787.b62222be.chunk.js",
-    "static/media/image4-2.jpg": "/4ac-site-hosting/static/media/image4-2.d0d121158588e5b52e19.jpg",
-    "static/media/image1.jpg": "/4ac-site-hosting/static/media/image1.56d306e5070951fbf904.jpg",
-    "static/media/image2-2.jpg": "/4ac-site-hosting/static/media/image2-2.e311cbbd5fdf15c7b14d.jpg",
+    "static/media/image3-1.jpg": "/4ac-site-hosting/static/media/image3-1.10a42ddd021172987cfe.jpg",
+    "static/media/image1-1.jpg": "/4ac-site-hosting/static/media/image1-1.01189d24ed9bd9430d3a.jpg",
+    "static/media/image2-3.jpg": "/4ac-site-hosting/static/media/image2-3.d2d8864c5fe15a90b746.jpg",
     "index.html": "/4ac-site-hosting/index.html",
-    "main.8db1ba34.css.map": "/4ac-site-hosting/static/css/main.8db1ba34.css.map",
-    "main.1b3815e2.js.map": "/4ac-site-hosting/static/js/main.1b3815e2.js.map",
+    "main.6da51e10.css.map": "/4ac-site-hosting/static/css/main.6da51e10.css.map",
+    "main.c695b6e4.js.map": "/4ac-site-hosting/static/js/main.c695b6e4.js.map",
     "787.b62222be.chunk.js.map": "/4ac-site-hosting/static/js/787.b62222be.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8db1ba34.css",
-    "static/js/main.1b3815e2.js"
+    "static/css/main.6da51e10.css",
+    "static/js/main.c695b6e4.js"
   ]
 }
