@@ -68,7 +68,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
   return (
     <div>
       <div className="section" ref={(el) => (sectionRefs.current[0] = el)}>
-        <div className="flex flex-col justify-center items-center text-center backgroundImage image1">
+        <div className="flex flex-col justify-end items-center text-center backgroundImage image1 pb-48">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
             Let's stop alcohol ads being shown to children
           </div>
@@ -85,7 +85,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
         </div>
       </div>
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
-        <div className="flex flex-col justify-center text-center backgroundImage image2">
+        <div className="flex flex-col justify-end text-center backgroundImage image2 pb-72">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
             Millions of kids watch TV sports, <br /> The Australian Government
             doesn't protect them from alcohol ads.
@@ -146,6 +146,28 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
               <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <SubmissionForm onClose={closeModal} />
               </Modal>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
+        <div className="flex flex-col justify-end text-center backgroundImage image4 pb-10 md:pb-40 lg:pb-52">
+          <div className="headline text-2xl md:text-4xl p-4 text-white font-bold">
+            <div className="max-w-[640px]">
+              William believes that his son and all children deserve better than
+              to be shown alcohol ads.
+              <br />
+              <br />
+              Watch the{" "}
+              <a
+                className="text-sky-200 font-bold"
+                href="https://chuffed.org/project/pz85-stop-alcohol-ads-being-shown-to-children"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ABC News Story
+              </a>{" "}
+              for more information.
             </div>
           </div>
         </div>

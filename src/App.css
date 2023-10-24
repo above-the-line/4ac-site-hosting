@@ -6,7 +6,7 @@
 }
 
 .image1 {
-  background-image: url("./images/image1-1.jpg");
+  background-image: url("./images/image1-2.jpg");
   background-position: center;
 }
 
@@ -20,12 +20,17 @@
   background-position: center;
 }
 
+.image4 {
+  background-image: url("./images/image4-5.jpg");
+  background-position: center;
+}
+
 .title {
   height: 100vh;
 }
 
 .headline {
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 4px 4px 5px black;
 }
 
 @media screen and (min-width: 960px) {
