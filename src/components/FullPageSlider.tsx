@@ -15,6 +15,8 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
     setModalOpen(false);
   };
 
+  const isChrome = /Chrome/.test(navigator.userAgent);
+
   const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   // Scroll to the next or previous section smoothly based on scroll direction
@@ -43,11 +45,16 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
   };
 
   // Add wheel event listener for scrolling
-  const handleScroll = useCallback((e: WheelEvent) => {
-    e.preventDefault();
-    const direction = e.deltaY > 0 ? "down" : "up";
-    scrollToSection(direction);
-  }, []);
+  const handleScroll = useCallback(
+    (e: WheelEvent) => {
+      if (isChrome) {
+        e.preventDefault();
+        const direction = e.deltaY > 0 ? "down" : "up";
+        scrollToSection(direction);
+      }
+    },
+    [isChrome]
+  );
 
   // Initialize sectionRefs on component mount
   useEffect(() => {
@@ -58,12 +65,14 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
 
   // Add wheel event listener on component mount
   useEffect(() => {
-    window.addEventListener("wheel", handleScroll, { passive: false });
+    if (isChrome) {
+      window.addEventListener("wheel", handleScroll, { passive: false });
 
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-    };
-  }, [handleScroll]);
+      return () => {
+        window.removeEventListener("wheel", handleScroll);
+      };
+    }
+  }, [handleScroll, isChrome]);
 
   return (
     <div>
