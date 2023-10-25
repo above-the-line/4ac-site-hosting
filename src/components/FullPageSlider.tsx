@@ -85,7 +85,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
         </div>
       </div>
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
-        <div className="flex flex-col justify-end text-center backgroundImage image2 pb-72">
+        <div className="flex flex-col justify-end text-center backgroundImage image2 pb-48 md:72">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
             Millions of kids watch TV sports, <br /> The Australian Government
             doesn't protect them from alcohol ads.
@@ -151,8 +151,8 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
         </div>
       </div>
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
-        <div className="flex flex-col justify-end text-center backgroundImage image4 pb-10 md:pb-40 lg:pb-52">
-          <div className="headline text-2xl md:text-4xl p-4 text-white font-bold">
+        <div className="flex flex-col justify-end text-center backgroundImage image4 pb-10 md:pb-24 3xl:pb-48">
+          <div className="headline text-2xl md:text-4xl p-4 text-white font-bold flex flex-col items-center">
             <div className="max-w-[640px]">
               William believes that his son and all children deserve better than
               to be shown alcohol ads.
