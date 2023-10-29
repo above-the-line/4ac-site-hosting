@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/4ac-site-hosting/static/css/main.0eb8210b.css",
-    "main.js": "/4ac-site-hosting/static/js/main.9c3e1590.js",
-    "static/js/787.b62222be.chunk.js": "/4ac-site-hosting/static/js/787.b62222be.chunk.js",
-    "static/media/image3-1.jpg": "/4ac-site-hosting/static/media/image3-1.10a42ddd021172987cfe.jpg",
-    "static/media/image1-2.jpg": "/4ac-site-hosting/static/media/image1-2.c2a74dc627c385fd4be2.jpg",
-    "static/media/image2-3.jpg": "/4ac-site-hosting/static/media/image2-3.d2d8864c5fe15a90b746.jpg",
-    "static/media/image4-5.jpg": "/4ac-site-hosting/static/media/image4-5.b5f8dd9551c72e2eef19.jpg",
-    "static/media/image5-3.jpg": "/4ac-site-hosting/static/media/image5-3.6c6b0d7f02094f4b60bb.jpg",
-    "index.html": "/4ac-site-hosting/index.html",
-    "main.0eb8210b.css.map": "/4ac-site-hosting/static/css/main.0eb8210b.css.map",
-    "main.9c3e1590.js.map": "/4ac-site-hosting/static/js/main.9c3e1590.js.map",
-    "787.b62222be.chunk.js.map": "/4ac-site-hosting/static/js/787.b62222be.chunk.js.map"
+    "main.css": "/static/css/main.98d20899.css",
+    "main.js": "/static/js/main.4f628d0c.js",
+    "static/js/787.b62222be.chunk.js": "/static/js/787.b62222be.chunk.js",
+    "static/media/image3-1.jpg": "/static/media/image3-1.10a42ddd021172987cfe.jpg",
+    "static/media/image1-2.jpg": "/static/media/image1-2.c2a74dc627c385fd4be2.jpg",
+    "static/media/image2-3.jpg": "/static/media/image2-3.d2d8864c5fe15a90b746.jpg",
+    "static/media/image4-5.jpg": "/static/media/image4-5.b5f8dd9551c72e2eef19.jpg",
+    "static/media/image5-3.jpg": "/static/media/image5-3.6c6b0d7f02094f4b60bb.jpg",
+    "index.html": "/index.html",
+    "main.98d20899.css.map": "/static/css/main.98d20899.css.map",
+    "main.4f628d0c.js.map": "/static/js/main.4f628d0c.js.map",
+    "787.b62222be.chunk.js.map": "/static/js/787.b62222be.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0eb8210b.css",
-    "static/js/main.9c3e1590.js"
+    "static/css/main.98d20899.css",
+    "static/js/main.4f628d0c.js"
   ]
 }
