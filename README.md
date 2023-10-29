@@ -7,7 +7,7 @@ npm i -D daisyui@latest
 npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 
 
-
+must change the homepage param to the registered domain name
 
 
 
