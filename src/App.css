@@ -25,6 +25,10 @@
   background-position: center;
 }
 
+.image5 {
+  background-image: url("./images/image5-3.jpg");
+  background-position: center;
+}
 .title {
   height: 100vh;
 }

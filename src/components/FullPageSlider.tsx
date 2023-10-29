@@ -1,11 +1,28 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Modal from "./Modal";
 import SubmissionForm from "./SubmissionForm";
+import YouTube from "react-youtube";
 
 interface FullPageSliderProps {}
 
 const FullPageSlider: React.FC<FullPageSliderProps> = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [videoId, setVideoId] = useState("cV_fcvSOZN0");
+
+  const opts = {
+    height: "735",
+    width: "415",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+      controls: 1,
+    },
+  };
+
+  const onReady = (event: any) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  };
 
   const openModal = () => {
     setModalOpen(true);
@@ -88,7 +105,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Join the campaign
+              Support the campaign
             </a>
           </div>
         </div>
@@ -96,7 +113,7 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
         <div className="flex flex-col justify-end text-center backgroundImage image2 pb-48 md:72">
           <div className="headline text-3xl md:text-4xl p-4 text-white font-bold">
-            Millions of kids watch TV sports, <br /> The Australian Government
+            Millions of kids watch TV sports. <br /> The Australian Government
             doesn't protect them from alcohol ads.
           </div>
         </div>
@@ -177,6 +194,15 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
                 ABC News Story
               </a>{" "}
               for more information.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
+        <div className="flex flex-col justify-center text-center backgroundImage image5">
+          <div className="headline text-2xl md:text-4xl p-4 text-white font-bold flex flex-col items-center">
+            <div className="max-w-[640px]">
+              <YouTube videoId={videoId} opts={opts} onReady={onReady} />
             </div>
           </div>
         </div>
