@@ -13,9 +13,11 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
     height: "735",
     width: "415",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-      controls: 1,
+      autoplay: 0,
+      controls: 0,
+      modestbranding: 1,
+      enablejsapi: 1,
+      loop: 1,
     },
   };
 
