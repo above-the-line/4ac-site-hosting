@@ -189,11 +189,21 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
               Watch the{" "}
               <a
                 className="text-sky-200 font-bold"
-                href="https://chuffed.org/project/pz85-stop-alcohol-ads-being-shown-to-children"
+                href="https://www.abc.net.au/news/2023-11-05/canberra-man-calls-for-a-ban-on-alcohol-ads/103066770"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 ABC News Story
+              </a>
+              {", "}
+              or read the{" "}
+              <a
+                className="text-sky-200 font-bold"
+                href="https://www.abc.net.au/news/2023-11-05/bid-to-stop-alcohol-advertising-during-televised-sport/103057648"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                article
               </a>{" "}
               for more information.
             </div>
