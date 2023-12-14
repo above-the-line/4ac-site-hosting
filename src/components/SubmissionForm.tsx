@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
 interface FormData {
   name: string;
@@ -11,25 +11,39 @@ interface SubmissionFormProps {
 }
 
 const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
+  //@ts-ignore
+  let grecaptcha = window.grecaptcha;
 
   const [recaptchaResponse, setRecaptchaResponse] = useState<string | null>(
     null
   );
 
-  // Callback function for reCAPTCHA
-  const onRecaptchaSubmit = () => {
-    if (recaptchaResponse) {
-      setRecaptchaResponse(recaptchaResponse);
-    } else {
-      // Handle reCAPTCHA verification failure
-      console.error("reCAPTCHA verification failed");
+  useEffect(() => {
+    if (recaptchaResponse == null) {
+      console.log("attempting to get token automatically");
+      grecaptcha.enterprise.ready(async () => {
+        let token = await grecaptcha.enterprise.execute(
+          "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf",
+          { action: "LOGIN" }
+        );
+        if (
+          recaptchaResponse == null &&
+          token !== undefined &&
+          token !== null
+        ) {
+          setRecaptchaResponse(token);
+          console.log(token);
+          return null;
+        } else return null;
+      });
     }
-  };
+  }, [grecaptcha, recaptchaResponse]);
+
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,45 +51,72 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Form submit and RECAPTCHA check
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("handle submit fired");
 
-    if (!recaptchaResponse) {
-      // reCAPTCHA verification is required
-      console.error("Please complete the reCAPTCHA challenge");
-      return;
-    }
+    if (recaptchaResponse !== null) {
+      console.log("using existing token");
+      // Prepare the data to be sent to the server
+      const data = {
+        ...formData,
+        token: recaptchaResponse,
+      };
 
-    // Prepare the data to be sent to the server
-    const data = {
-      ...formData,
-      recaptchaResponse,
-    };
+      getRecpatchaAssessment(data);
 
-    // Make an API request to your server to handle form submission
-    try {
-      const response = await fetch(
-        `https://addmessage-zn6a4a7xfq-uc.a.run.app?text=${formData.name}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      console.log(data);
+    } else {
+      console.log("attempting to get new token");
+      // Handle reCAPTCHA verification failure
+      // console.log("reCAPTCHA verification failed, attempting login");
+      let token = await grecaptcha.enterprise.ready(() => {
+        return grecaptcha.enterprise.execute(
+          "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf",
+          { action: "LOGIN" }
+        );
+      });
 
-      if (response.ok) {
-        console.log("Form submitted successfully");
-        // Optionally, reset the form or perform any other actions
-      } else {
-        console.error("Form submission failed");
-      }
-    } catch (error) {
-      console.error("An error occurred while submitting the form:", error);
+      let data = { ...formData, token };
+
+      getRecpatchaAssessment(data);
     }
   };
+
+  function getRecpatchaAssessment(data: any) {
+    // Make an API request to your server to handle form submission
+    return new Promise(async () => {
+      try {
+        const recaptcha_action = "LOGIN";
+        const project_id = "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf";
+        const recaptcha_key = "";
+        const token = data.token;
+
+        const baseUrl = "http://localhost:8080/";
+
+        const response = await fetch(
+          `${baseUrl}?token=${token}&recaptcha_action=${recaptcha_action}&project_id=${project_id}&recaptcha_key=${recaptcha_key}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          console.log("Form submitted successfully");
+          // Optionally, reset the form or perform any other actions
+        } else {
+          console.error("Form submission failed");
+        }
+      } catch (error) {
+        console.error("An error occurred while submitting the form:", error);
+      }
+    });
+  }
 
   return (
     <div className="flex flex-col items-center min-w-[300px] md:min-w-[500px] justify-center pb-5">
