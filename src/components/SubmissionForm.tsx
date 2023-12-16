@@ -1,5 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
+const RECAPTCHA_KEY_ID = "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf";
+const ENDPOINT = "http://localhost:8080/";
+// const ENDPOINT = "https://assess-zn6a4a7xfq-ts.a.run.app/";
 interface FormData {
   name: string;
   email: string;
@@ -22,10 +25,9 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
     if (recaptchaResponse == null) {
       console.log("attempting to get token automatically");
       grecaptcha.enterprise.ready(async () => {
-        let token = await grecaptcha.enterprise.execute(
-          "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf",
-          { action: "LOGIN" }
-        );
+        let token = await grecaptcha.enterprise.execute(RECAPTCHA_KEY_ID, {
+          action: "LOGIN",
+        });
         if (
           recaptchaResponse == null &&
           token !== undefined &&
@@ -65,7 +67,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
         token: recaptchaResponse,
       };
 
-      getRecpatchaAssessment(data);
+      let assessment = await getRecpatchaAssessment(data);
 
       console.log(data);
     } else {
@@ -73,10 +75,9 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
       // Handle reCAPTCHA verification failure
       // console.log("reCAPTCHA verification failed, attempting login");
       let token = await grecaptcha.enterprise.ready(() => {
-        return grecaptcha.enterprise.execute(
-          "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf",
-          { action: "LOGIN" }
-        );
+        return grecaptcha.enterprise.execute(RECAPTCHA_KEY_ID, {
+          action: "LOGIN",
+        });
       });
 
       let data = { ...formData, token };
@@ -90,14 +91,14 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
     return new Promise(async () => {
       try {
         const recaptcha_action = "LOGIN";
-        const project_id = "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf";
-        const recaptcha_key = "";
+        const project_id = RECAPTCHA_KEY_ID;
         const token = data.token;
 
-        const baseUrl = "http://localhost:8080/";
+        const baseUrl = ENDPOINT;
 
         const response = await fetch(
-          `${baseUrl}?token=${token}&recaptcha_action=${recaptcha_action}&project_id=${project_id}&recaptcha_key=${recaptcha_key}`,
+          `${baseUrl}?token=${token}&action=${recaptcha_action}&project_id=${project_id}&name=${data.name}`,
+          // `${baseUrl}?action=${recaptcha_action}&project_id=${project_id}&name=${data.name}`,
           {
             method: "GET",
             headers: {
@@ -106,14 +107,18 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
           }
         );
 
+        let assessment = null;
+
         if (response.ok) {
           console.log("Form submitted successfully");
+          assessment = await response.json();
+          console.log(assessment);
+          return assessment;
+          // console.log(response);
           // Optionally, reset the form or perform any other actions
-        } else {
-          console.error("Form submission failed");
         }
       } catch (error) {
-        console.error("An error occurred while submitting the form:", error);
+        console.log("An error occurred while submitting the form:", error);
       }
     });
   }
