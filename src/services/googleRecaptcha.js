@@ -1,8 +1,8 @@
-let reCaptchaId = '6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf'
+let reCaptchaId = '6LfYRvYoAAAAABmg77n1QQtyIr3t77KXqr4gxOYM'
 
 window.grecaptcha.enterprise.ready(async () => {
   const token = await window.grecaptcha.enterprise.execute(
-    "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf",
+    reCaptchaId,
     {
       action: "home",
     }

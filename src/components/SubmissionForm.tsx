@@ -1,8 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 
-const RECAPTCHA_KEY_ID = "6Lfgg_YoAAAAANQd-GgU5ZQ32ySDU7loCiWEtTYf";
-const ENDPOINT = "http://localhost:8080/";
-// const ENDPOINT = "https://assess-zn6a4a7xfq-ts.a.run.app/";
+const RECAPTCHA_KEY_ID = "6LfYRvYoAAAAABmg77n1QQtyIr3t77KXqr4gxOYM";
+// const ENDPOINT = "http://localhost:8080/";
+const ENDPOINT = "https://assess-zn6a4a7xfq-ts.a.run.app/";
 interface FormData {
   name: string;
   email: string;
@@ -34,7 +34,6 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
           token !== null
         ) {
           setRecaptchaResponse(token);
-          console.log(token);
           return null;
         } else return null;
       });
