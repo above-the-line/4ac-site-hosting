@@ -211,9 +211,9 @@ const FullPageSlider: React.FC<FullPageSliderProps> = () => {
         </div>
       </div>
       <div className="section" ref={(el) => (sectionRefs.current[1] = el)}>
-        <div className="flex flex-col justify-center text-center backgroundImage image5">
-          <div className="headline text-2xl md:text-4xl p-4 text-white font-bold flex flex-col items-center">
-            <div className="max-w-[640px]">
+        <div className="sm:[w-320px] flex flex-col justify-center text-center backgroundImage image5">
+          <div className="sm:[w-320px] headline text-2xl md:text-4xl p-4 text-white font-bold flex flex-col items-center">
+            <div className="sm:[w-320px] md:max-w-[640px]">
               <YouTube videoId={videoId} opts={opts} onReady={onReady} />
             </div>
           </div>

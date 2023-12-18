@@ -136,18 +136,29 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="mb-4">
             <input
-              type="text"
+              type="email"
               placeholder="Email"
               className="input input-ghost w-full"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
             />
+            <small className="text-red-500">
+              {/* Display error message for invalid email format */}
+              {formData.email !== "" &&
+                !formData.email.match(
+                  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+                ) &&
+                "Invalid email format"}
+            </small>
           </div>
           <div className="mb-4">
             <textarea
@@ -157,6 +168,7 @@ const SubmissionForm: React.FC<SubmissionFormProps> = ({ onClose }) => {
               name="message"
               value={formData.message}
               onChange={handleChange}
+              required
             ></textarea>
           </div>
           <button className="g-recaptcha btn btn-wide w-full  bg-green-700 border-green-700 text-green-100 btn-active text-xl font-bold">
