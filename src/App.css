@@ -28,6 +28,7 @@
 .image5 {
   background-image: url("./images/image5-3.jpg");
   background-position: center;
+  overflow: hidden;
 }
 .title {
   height: 100vh;
@@ -41,4 +42,8 @@
   .image2 {
     background-position: right;
   }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }

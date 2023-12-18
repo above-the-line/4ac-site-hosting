@@ -12,6 +12,81 @@ must change the homepage param to the registered domain name
 
 
 
+# ReCaptcha Enterprise
+<!-- ATTENTION: reCAPTCHA Example (Client Part 1 of 2) Starts -->
+    <!-- See: https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages#page-load -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfNRvYoAAAAAFnPWd0d5i_nMB4d4qOjW9MFsrIq"></script>
+    <script type="text/javascript">
+      grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute(
+          "6LfNRvYoAAAAAFnPWd0d5i_nMB4d4qOjW9MFsrIq",
+          {
+            action: "home",
+          }
+        );
+        await viewHomepage({ token });
+      });
+
+
+ async function viewHomepage({ token }) {
+        // Include the token for server-side assessment.
+        const body = {
+          token,
+        };
+        // Code for fetching the assessment from server-side goes here.
+        // Refer to demo app backend code for more information.
+        // If you already use a library or framework for event handlers, you 
+        // can handle events your usual way.
+        const score = await fetchServerResponse({
+          body,
+          url: "on_homepage_load",
+        });
+        // In this demo, the assessment score is displayed in the client.
+        // But, you should AVOID using the assessment response in the
+        // client and handle it on the server-side.
+        useAssessmentInClient(score);
+ }
+
+
+// This code is internal to the demo.
+// It fetches responses from the demo endpoints.
+function fetchServerResponse({ body, url }) {
+  const serializedBody = JSON.stringify({
+    ...body,
+  });
+  return fetch(url, {
+    body: serializedBody,
+    headers: new Headers({ "content-type": "application/json" }),
+    method: "POST",
+  })
+    .then((response) => {
+      const { ok, body: { data = {} } = {} } = response;
+      if (ok) {
+        return response.json();
+      }
+      throw new Error("Response was successful, but status was not 'ok'");
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+}
+
+// This code is internal to the demo.
+// It passes the score to the demo to display it.
+function useAssessmentInClient(score) {
+  if (score?.data?.score && score?.data?.label) {
+    const demoElement = document.querySelector("recaptcha-demo");
+    demoElement.setAttribute("score", score?.data?.score);
+    demoElement.setAttribute("label", score?.data?.label);
+    demoElement.setAttribute("reason", score?.data?.reason);
+  }
+}
+
+
+
 
 
 ## Available Scripts
